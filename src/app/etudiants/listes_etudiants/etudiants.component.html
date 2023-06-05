@@ -1,0 +1,72 @@
+<div id="content-page" class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="iq-card">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">Liste des Étudiants</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <div id="table" class="table-editable">
+                        <span class="table-add float-right mt-2 mb-3 mr-2">
+                            <form (ngSubmit)="listerEtudiants()" method="get">
+                                <button class="btn btn-sm iq-bg-success"><i
+                                    class="ri-add-fill"><span class="pl-1">Liste Etudiants</span></i>
+                                </button>
+                            </form>
+                        </span>
+                        <div class="">
+                            <form (ngSubmit)="listeEtudiantsCours(selectedCoursId)" method="get">
+                                <div class="form-group d-flex mb-1">
+                                    <select class="form-control w-25 me-3" [(ngModel)]="selectedCoursId" name="coursId">
+                                        <option *ngFor="let c of cours" [value]="c.id">{{c.moduleLibelle}}</option>
+                                    </select>
+                                    <button class="btn btn-sm iq-bg-success me-3"><i
+                                        class="ri-add-fill"><span class="pl-1">OK</span></i>
+                                    </button>
+                                </div>
+                            </form>
+                            <form (ngSubmit)="listeEtudiantsClasses(selectedClassesId)" method="get">
+                                <div class="form-group1 d-flex justify-content-end mb-3">
+                                    <select class="form-control w-25 me-3"  [(ngModel)]="selectedClassesId" name="classesId">
+                                        <option  *ngFor="let cl of classes" [value]="cl.id">{{cl.libelle}}</option>
+                                    </select>
+                                    <button class="btn btn-sm iq-bg-success"><i
+                                        class="ri-add-fill"><span class="pl-1">OK</span></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
+                            <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Matricule</th>
+                                <th>Tuteur</th>
+                                <th>Remove</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let etu of etudiants">
+                                <td contenteditable="true">{{ etu.nom}}</td>
+                                <td contenteditable="true">{{ etu.prenom}}</td>
+                                <td contenteditable="true">{{ etu.matricule}}</td>
+                                <td contenteditable="true">{{ etu.tuteur}}</td>
+                                <td>
+                                <span class="table-remove"><button type="button"
+                                    class="btn iq-bg-danger btn-rounded btn-sm my-0">Remove</button></span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

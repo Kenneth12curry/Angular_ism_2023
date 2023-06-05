@@ -1,0 +1,47 @@
+<div id="content-page" class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="iq-card">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">Liste des salles</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <div id="table" class="table-editable">
+                        <span class="table-add float-right mb-3 mr-2">
+                            <button routerLink="/salles-cours/create-salles" class="btn btn-sm iq-bg-success"><i
+                                class="ri-add-fill"><span class="pl-1">Nouvelle salle</span></i>
+                            </button>
+                        </span>
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
+                            <thead>
+                            <tr>
+                                <th>Nom de la Salle</th>
+                                <th>Numéro</th>
+                                <th>Nbre de Places</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let sl of salles">
+                                <td contenteditable="true">{{ sl.nom}}</td>
+                                <td contenteditable="true">{{ sl.numero}}</td>
+                                <td contenteditable="true">{{ sl.nbrePlaces}}</td>
+                                <td>
+                                <span class="table-remove"><button type="button"
+                                    class="btn iq-bg-danger btn-rounded btn-sm my-0">Remove</button></span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

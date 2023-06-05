@@ -1,0 +1,34 @@
+
+ <!-- TOP Nav Bar END -->
+ <!-- Page Content  -->
+ <div id="content-page" class="content-page">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-lg-8">
+                <div class="iq-card">
+                   <div class="iq-card-header d-flex justify-content-between">
+                      <div class="iq-header-title">
+                         <h4 class="card-title">Nouvelle annee</h4>
+                      </div>
+                   </div>
+                   <div class="iq-card-body">
+                      <div class="new-user-info">
+                        <form (ngSubmit)="ajouterAnnee()" method="post">
+                              <div class="row">
+                                 <div class="form-group col-md-6">
+                                    <label for="fname">Libelle:</label>
+                                    <input name="libelle" type="text" class="form-control" id="fname" [(ngModel)]="annee.libelle"  placeholder="année scolaire">
+                                 </div>
+                              </div>
+                              <hr>
+                              <button type="submit" class="btn btn-warning">Nouvelle année</button>
+                        </form>
+                      </div>
+                   </div>
+                </div>
+          </div>
+       </div>
+    </div>
+   </div>
+   
+   

@@ -1,0 +1,81 @@
+<div id="content-page" class="content-page">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-sm-12 col-lg-6">
+             <div class="iq-card">
+                <div class="iq-card-header d-flex justify-content-between">
+                   <div class="iq-header-title">
+                      <h4 class="card-title">Ajouter une session de cours</h4>
+                   </div>
+                </div>
+                <div class="iq-card-body">
+                   <form  (ngSubmit)=" ajouterSessionCours()" method="post">
+                    <div class="form-group">
+                        <label for="email">Date</label>
+                        <input type="date" name="date" class="form-control" id="email1" [(ngModel)]="sessionCours.date">
+                     </div>
+                      <div class="form-group">
+                         <label for="email">Heure Début</label>
+                         <input type="time" name="heureDebut" class="form-control" id="email1" [(ngModel)]="sessionCours.heureDebut" >
+                      </div>
+                      
+                      <div class="form-group">
+                         <label for="pwd">Heure Fin</label>
+                         <input type="time" name="heureFin" class="form-control" id="pwd" [(ngModel)]="sessionCours.heureFin">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="pwd">Nombre Heure</label>
+                        <input type="number" name="nbreHeure" class="form-control" id="pwd" [(ngModel)]="sessionCours.nbreHeure">
+                     </div>
+
+                     <div class="form-group">
+                        <label for="pwd">status</label>
+                        <input type="text" name="lieu" class="form-control" id="pwd" [(ngModel)]="sessionCours.lieu">
+                     </div>
+
+                     <div class="form-group">
+                        <label for="pwd">états</label>
+                        <select class="form-control" name="etat" [(ngModel)]="sessionCours.etat">
+                           <option>Chosir une otion</option>
+                           <option Value="Planifier">Planifier</option>
+                        </select>
+                        <!--input type="text" name="etat" class="form-control" id="pwd" [(ngModel)]="sessionCours.etat"-->
+                     </div>
+
+                      <div class="form-group">
+                        <label class="me-3" for="pwd">Salles</label>
+                        <select class="form-control" name="sallescours" [(ngModel)]="sessionCours.sallescours">
+                            <option>Chosir une otion</option>
+                            <option *ngFor="let s of salles" [ngValue]="s.id">{{s.numero}}</option>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <label class="me-3" for="pwd">cours</label>
+                        <select class="form-control" name="cours" [(ngModel)]="sessionCours.cours">
+                            <option>Chosir une otion</option>
+                            <option *ngFor="let c of cours" [ngValue]="c.id">{{c.nbreHeureGlobal}}</option>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <label class="me-3" for="pwd">Professeur</label>
+                        <select class="form-control" name="professeur" [(ngModel)]="sessionCours.professeur">
+                            <option>Chosir une otion</option>
+                            <option *ngFor="let p of professeurs" [ngValue]="p.id">{{p.nom}}</option>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <label class="me-3" for="pwd">Module</label>
+                            <select class="form-control" name="module" [(ngModel)]="sessionCours.module">
+                                <option>Chosir une otion</option>
+                                <option *ngFor="let m of modules" [ngValue]="m.id">{{m.libelle}}</option>
+                            </select>
+                        </div>
+                      <button type="submit" class="btn btn-primary me-4">Submit</button>
+                      <button type="submit" routerLink='/session-cours/liste-sc' class="btn iq-bg-danger">cancle</button>
+                   </form>
+                </div>
+             </div>
+       </div>
+    </div>
+ </div>

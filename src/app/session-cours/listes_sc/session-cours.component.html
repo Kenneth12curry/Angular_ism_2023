@@ -1,0 +1,103 @@
+
+
+ <!-- TOP Nav Bar END -->
+ <!-- Page Content  -->
+ <div id="content-page" class="content-page">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-sm-12">
+                <div class="iq-card">
+                   <div class="iq-card-header d-flex justify-content-between">
+                      <div class="iq-header-title">
+                         <h4 class="card-title">Listes des sessions de cours</h4>
+                      </div>
+                   </div>
+                   <div class="iq-card-body">
+                      <div class="table-responsive">
+                         <div class="row justify-content-between">
+                            <div class="col-sm-12 col-md-6">
+                               <div id="user_list_datatable_info" class="dataTables_filter">
+                                  <form (ngSubmit)="listerScByEtats(etats)" class="mr-3 position-relative" method="get">
+                                     <div class="form-group mb-0 d-flex">
+                                       <select  class="form-control w-50 me-3" [(ngModel)]="etats" name="etat">
+                                           <option>Choisir un état</option>
+                                           <option value="Planifier">Planifier</option>
+                                           <option value="Valider">Valider</option>
+                                           <option value="Invalider">invalider</option>
+                                           <option value="Annuler">Annuler</option>
+                                       </select>
+                                       <button class="btn btn-sm iq-bg-success"><i
+                                          class="ri-add-fill"><span class="pl-1">OK</span></i>
+                                      </button>
+                                     </div>
+                                  </form>
+                               </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                               <div class="user-list-files d-flex float-right">
+                                    <button routerLink='/session-cours/create-sc' class="btn btn-sm iq-bg-success"><i
+                                       class="ri-add-fill"><span class="pl-1">Nouvelle Session de Cours</span></i>
+                                    </button>
+                                   <!--a class="iq-bg-primary" href="javascript:void();">
+                                     Pdf
+                                   </a-->
+                                 </div>
+                            </div>
+                         </div>
+                         <table id="user-list-table" class="table table-striped table-borderless mt-4" role="grid" aria-describedby="user-list-page-info">
+                           <thead>
+                               <tr>
+                                 <th>Date</th>
+                                 <th>Statuts</th>
+                                  <th>Heure Début</th>
+                                  <th>Heure Fin</th>
+                                  <th>Nombre d'Heure</th>
+                                  <th>Professeur</th>
+                                  <th>Salles</th>
+                                  <th>Etats</th>
+                                  <th>Actions</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                                   <tr *ngFor="let sc of sessionCours">
+                                       <td>{{sc.date}}</td>
+                                       <td><span class="badge dark-icon-light iq-bg-primary">{{sc.lieu}}</span></td>
+                                       <td>{{sc.heureDebut}}</td>
+                                       <td>{{sc.heureFin}}</td>
+                                       <td class="text-center">{{sc.nbreHeure}}H</td>
+                                       <td>{{sc.professeurName}}</td>
+                                       <td>{{sc.salles}}</td>
+                                       <td><span class="badge dark-icon-light iq-bg-primary">{{sc.etat}}</span></td>
+                                       <td>
+                                           <div>
+                                               <a class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" (click)="annulerSc(sc.id)" [attr.data-id]="sc.id" *ngIf="sc.etat.toString() != etatSession.toString()">Annuler</a>
+                                           </div>
+                                       </td>
+                                   </tr>
+                           </tbody>
+                         </table>
+                      </div>
+                         <div class="row justify-content-end mt-3">
+                            <div class="col-md-6">
+                               <nav aria-label="Page navigation example ">
+                                  <ul class="pagination justify-content-end mb-0">
+                                     <li class="page-item disabled">
+                                        <a class="page-link"  tabindex="-1" aria-disabled="true">Previous</a>
+                                     </li>
+                                     <li class="page-item active"><a class="page-link" >1</a></li>
+                                     <li class="page-item"><a class="page-link" >2</a></li>
+                                     <li class="page-item"><a class="page-link" >3</a></li>
+                                     <li class="page-item">
+                                        <a class="page-link" >Next</a>
+                                     </li>
+                                  </ul>
+                               </nav>
+                            </div>
+                         </div>
+                   </div>
+                </div>
+          </div>
+       </div>
+    </div>
+   </div>
+   

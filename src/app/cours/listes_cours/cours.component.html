@@ -1,0 +1,97 @@
+
+ <!-- TOP Nav Bar END -->
+ <!-- Page Content  -->
+<div id="content-page" class="content-page">
+ <div class="container-fluid">
+    <div class="row">
+       <div class="col-sm-12">
+             <div class="iq-card">
+                <div class="iq-card-header d-flex justify-content-between">
+                   <div class="iq-header-title">
+                      <h4 class="card-title">Listes des cours</h4>
+                   </div>
+                </div>
+                <div class="iq-card-body">
+                   <div class="table-responsive">
+                      <div class="row justify-content-between">
+                         <div class="col-sm-12 col-md-6">
+                            <div id="user_list_datatable_info" class="dataTables_filter">
+                               <form class="mr-3 position-relative">
+                                  <div class="form-group mb-0 d-flex">
+                                    <form (ngSubmit)="listerCoursByEtats(etats)">
+                                       <div class="form-group d-flex mb-1">
+                                             <select class="etat form-control  me-3" [(ngModel)]="etats" name="etat">
+                                                <option>Choisir un état</option>
+                                                <option value="Planifier">Planifier</option>
+                                                <option value="Terminer">Terminer</option>
+                                                <option value="Encours">Encours</option>
+                                             </select>
+                                             <button class="btn btn-sm iq-bg-success"><i
+                                                class="ri-add-fill"><span class="pl-1">OK</span></i>
+                                            </button>
+                                       </div>
+                                    </form>
+                                  </div>
+                               </form>
+                            </div>
+                         </div>
+                         <div class="col-sm-12 col-md-6">
+                            <div class="user-list-files d-flex float-right">
+                               <button routerLink='/cours/add-cours' class="btn btn-sm iq-bg-success"><i
+                                       class="ri-add-fill"><span class="pl-1">Nouveau Cours</span></i>
+                                  </button>
+                              </div>
+                         </div>
+                      </div>
+                      <table id="user-list-table" class="table table-striped table-borderless mt-4" role="grid" aria-describedby="user-list-page-info">
+                        <thead>
+                            <tr>
+                               <th>Nombre Heure Global</th>
+                               <th>status</th>
+                               <th>Professeur</th>
+                               <th>Module</th>
+                               <th>Annee Scolaire</th>
+                               <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                              <tr *ngFor="let c of cours">
+                                 <td>{{c.nbreHeureGlobal}}H</td>
+                                 <td><span class="badge dark-icon-light iq-bg-primary">{{c.etat}}</span></td>
+                                 <td>{{ c.professeurName}}</td>
+                                 <td>{{ c.moduleLibelle}}</td>
+                                 <td>{{ c.anneeScolaireLibelle}}</td>
+                                 <td>
+                                       <div class="flex align-items-center list-user-action">
+                                          <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add" href="#"><i class="ri-user-add-line"></i></a>
+                                          <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="#"><i class="ri-pencil-line"></i></a>
+                                          <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="ri-delete-bin-line"></i></a>
+                                       </div>
+                                 </td>
+                              </tr>
+                        </tbody>
+                      </table>
+                   </div>
+                      <div class="row justify-content-end mt-3">
+                         <div class="col-md-6">
+                            <nav aria-label="Page navigation example ">
+                               <ul class="pagination justify-content-end mb-0">
+                                  <li class="page-item disabled">
+                                     <a class="page-link"  tabindex="-1" aria-disabled="true">Previous</a>
+                                  </li>
+                                  <li class="page-item active"><a class="page-link" >1</a></li>
+                                  <li class="page-item"><a class="page-link" >2</a></li>
+                                  <li class="page-item"><a class="page-link" >3</a></li>
+                                  <li class="page-item">
+                                     <a class="page-link" >Next</a>
+                                  </li>
+                               </ul>
+                            </nav>
+                         </div>
+                      </div>
+                </div>
+             </div>
+       </div>
+    </div>
+ </div>
+</div>
